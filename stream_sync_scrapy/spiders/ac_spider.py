@@ -1,5 +1,6 @@
 import scrapy
 from stream_sync_scrapy.items import MovieItem
+import re
 
 
 class QuotesSpider(scrapy.Spider):
@@ -8,7 +9,7 @@ class QuotesSpider(scrapy.Spider):
     base_url = "https://www.allocine.fr/film/meilleurs/decennie-2020"
 
     def start_requests(self):
-        page_to_scrape = 2
+        page_to_scrape = 20
         index = 0
 
         while index < page_to_scrape:
@@ -52,7 +53,7 @@ class QuotesSpider(scrapy.Spider):
 
             # directors
             directors = movie_selector.xpath(
-                '//div[@class="meta-body-item meta-body-direction "]/span/text()'
+                './/div[@class="meta-body-item meta-body-direction "]/span/text()'
             ).getall()
             item["directors"] = (
                 [director for director in directors if director.lower() != "de"]
@@ -62,7 +63,7 @@ class QuotesSpider(scrapy.Spider):
 
             # actors
             actors = movie_selector.xpath(
-                '//div[@class="meta-body-item meta-body-actor"]/a/text()'
+                './/div[@class="meta-body-item meta-body-actor"]/a/text()'
             ).getall()
             item["actors"] = actors if actors else None
 

@@ -65,7 +65,7 @@ DEFAULT_REQUEST_HEADERS = {
 
 ITEM_PIPELINES = {"stream_sync_scrapy.pipelines.MyImagesPipeline": 1}
 
-IMAGES_STORE = "images"
+IMAGES_STORE = "../stream-sync-backend/images"
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html

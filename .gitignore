@@ -1,3 +1,5 @@
 .venv
+venv
 images
 movies.json
+__pycache__/

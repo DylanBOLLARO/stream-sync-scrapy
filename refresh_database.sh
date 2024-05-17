@@ -6,10 +6,10 @@ python3 -m venv venv
 
 source venv/bin/activate
 
-pip3 install -r stream-sync-scrapy/requirements.txt
+pip3 install -r requirements.txt
 
-scrapy crawl allocine -o movies.json
+# scrapy crawl allocine -O movies.json
 
-python3 ./stream-sync-scrapy/setup_db.py
+python3 setup_db.py
 
-docker compose -f compose.dev.yml up -d
+docker compose -f ./../compose.dev.yml up -d

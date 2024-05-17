@@ -3,7 +3,7 @@ import json
 
 url = "http://localhost:5000/api/v1/movie"
 
-f = open('./stream-sync-scrapy/movies.json')
+f = open('./movies.json')
 movies = json.load(f)
 
 for movie in movies:

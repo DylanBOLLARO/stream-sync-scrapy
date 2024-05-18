@@ -1,7 +1,11 @@
 import requests
 import json
+from dotenv import dotenv_values
 
-url = "http://localhost:5000/api/v1/movie"
+config = dotenv_values("./../.env")
+backend_url = config['NEXT_PUBLIC_BACKEND_URL']
+
+url = f"{backend_url}/movie"
 
 f = open('./movies.json')
 movies = json.load(f)

@@ -12,4 +12,4 @@ scrapy crawl allocine -O movies.json
 
 python3 setup_db.py
 
-docker compose -f ./../compose.dev.yml up -d
+docker compose -f ./../compose.dev.yml --env-file ./../.env up -d
